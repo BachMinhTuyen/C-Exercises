@@ -53,6 +53,10 @@
 2. :triangular_flag_on_post: Tìm giá trị lớn nhất/ nhỏ nhất trong mảng hai chiều :heavy_check_mark:
 3. :triangular_flag_on_post: Tính tổng các giá trị trong mảng hai chiều :heavy_check_mark:
 4. :triangular_flag_on_post: Dòng có tổng lớn nhất trong mảng hai chiều :heavy_check_mark:
+5.  :triangular_flag_on_post: Tính tổng trong ma trận :heavy_check_mark:
+- :palm_tree: Đường chéo chính :partly_sunny:
+- :palm_tree: Đường chéo phụ :partly_sunny:
+
 
 :pushpin: **Chuỗi Kí Tự (String)** :sparkles:
 
