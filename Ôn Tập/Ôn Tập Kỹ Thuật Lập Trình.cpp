@@ -201,7 +201,7 @@ void menu()
 {
 	printf("0. Thoat chuong trinh!\n");
 	printf("1. Bai 1: Mang 1 chieu dang con tro\n");
-
+	printf("2. Bai 9: Bai toan viet theo ky thuat de quy\n");
 }
 void menuB1()
 {
@@ -218,12 +218,80 @@ void menuB1()
 	printf("10. Them phan tu vao sau so lon nhat MAX\n");
 	printf("11. Them phan tu vao truoc so nho nhat MIN\n");
 }
+void menuB9()
+{
+	printf("0. Quay lai\n");
+	printf("1. Tao mang 1 chieu \n");
+	printf("2. Tao mang 1 chieu ngau nhien\n");
+	printf("3. Xuat mang 1 chieu\n");
+	printf("4. Tim phan tu nho nhat\n");
+	printf("5. Cau 7: f(n) = 2*f(n-1)*f(n-2) biet f(0) = f(1) = 2\n");
+	printf("6. Cau 13: \n");
+
+}
+void nhapMang1Chieu(int a[], int& n)
+{
+	do {
+		printf(">> Nhap so luong phan tu n (n > 0): ");
+		scanf_s("%d", &n);
+	} while (n <= 0);
+	for (int i = 0; i < n; i++)
+	{
+		printf("a[%d]= ", i);
+		scanf_s("%d", &a[i]);
+	}
+}
+void nhapMang1Chieu_NgauNhien(int a[], int& n)
+{
+	srand(time(0));
+	do {
+		printf(">> Nhap so luong phan tu n (n > 0): ");
+		scanf_s("%d", &n);
+	} while (n <= 0);
+	for (int i = 0; i < n; i++)
+	{
+		//random từ a tới b:  a + rand() % b - a + 1
+		a[i] = rand() % 101;//random từ 0 tới 100
+	}
+}
+void xuatMang1Chieu(int a[], int n)
+{
+	for (int i = 0; i < n; i++)
+		printf("%5d", a[i]);
+}
+int timMin(int a[], int n)
+{
+	if (n == 1)
+		return a[0];
+	if (a[n - 1] < timMin(a, n - 1))
+		return a[n - 1];
+	else
+		return timMin(a, n - 1);
+}
+int cau7(int n)
+{
+	if (n == 0 || n == 1)
+		return 2;
+	return 2 * cau7(n - 1) * cau7(n - 2);
+}
+long tinhGiaiThua(int n)
+{
+	if (n == 1)
+		return 1;
+	return n * tinhGiaiThua(n - 1);
+}
+double cau13(int n)
+{
+	if (n == 1)
+		return 2 / (2 + sqrt(3));
+	return (n * tinhGiaiThua(n + 1)) / (n + 1 + sqrt(n + 2)) + cau13(n - 1);
+}
 int main()
 {
 	double* arr = new double[MAX];
 	double temp;
-	int soPhanTu, viTri;
-	int luaChon, Bai1;
+	int a[MAX], soPhanTu, viTri;
+	int luaChon, Bai1, Bai9, n;
 	for (;;)
 	{
 		system("cls");
@@ -312,10 +380,55 @@ int main()
 				default:printf("Khong hop le! Vui long lua chon lai!\n");
 					break;
 				}
-				_getch();
+				delete[] arr;
+				_getch();			
 			}
 			break;
 		case 2:
+			for (;;)
+			{
+				system("cls");
+				menuB9();
+				printf(">> Nhap lua chon: "); scanf_s("%d", &Bai9);
+				if (Bai9 == 0)break;
+				switch (Bai9)
+				{
+				case 1:
+					nhapMang1Chieu(a, soPhanTu);
+					printf("Mang vua nhap:\n");
+					xuatMang1Chieu(a, soPhanTu);
+					break;
+				case 2:
+					nhapMang1Chieu_NgauNhien(a, soPhanTu);
+					printf("Mang vua nhap:\n");
+					xuatMang1Chieu(a, soPhanTu);
+					break;
+				case 3:
+					printf("Mang vua nhap:\n");
+					xuatMang1Chieu(a, soPhanTu);
+					break;
+				case 4:
+					printf("Mang vua nhap:\n");
+					xuatMang1Chieu(a, soPhanTu);
+					printf("\nPhan tu nho nhat trong mang: %d", timMin(a, soPhanTu));
+					break;
+				case 5:
+					printf("Nhap n = ");
+					scanf_s("%d", &n);
+					printf("Ket qua cau 7 la f(%d) = %d", n, cau7(n));
+					break;
+				case 6:
+					printf("Nhap n = ");
+					scanf_s("%d", &n);
+					printf("Ket qua cau 13 la S(%d) = %.2lf", n, cau13(n));
+					break;
+				default:printf("Khong hop le! Vui long lua chon lai!\n");
+					break;
+				}
+				_getch();
+			}
+			break;
+		case 3:
 
 			break;
 		default:printf("Khong hop le! Vui long lua chon lai!\n");
