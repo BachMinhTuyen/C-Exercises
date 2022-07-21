@@ -57,6 +57,10 @@
 :pushpin: **Chuỗi Kí Tự (String)** :sparkles:
 
 1. :triangular_flag_on_post: Nhập và xuất chuỗi kí tự :heavy_check_mark:
+2. :triangular_flag_on_post: Đo độ dài chuỗi bằng hàm :heavy_check_mark:
+3. :triangular_flag_on_post: Đếm số từ có trong chuỗi :heavy_check_mark:
+4. :triangular_flag_on_post: Chuyển ký tự đầu thành in hoa còn lại chữ thường :heavy_check_mark:
+5. :triangular_flag_on_post: Chuẩn Hoá Chuỗi :heavy_check_mark:
 
 :pushpin: **Mảng Cấu Trúc (Struct) và FILE** :sparkles:
 
